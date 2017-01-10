@@ -3,6 +3,8 @@
 # among all machines in the cluster.
 class LiveUpdatesWarmer < TorqueBox::Messaging::MessageProcessor
 
+  # TODO DISABLE FOR ETS JUNCTION?
+
   extend Cache::Cacheable, Cache::StatAccumulator
   include ActiveRecordHelper, ClassLogger
   attr_reader :total_warmups

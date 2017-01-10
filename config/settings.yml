@@ -13,6 +13,8 @@ application:
   layer: development
   # Lifespan of session cookie
   session_expiration: <%= 4.hours %>
+  # Restrict deployment to a single service: 'calcentral', 'junction', or 'all' for no restrictions.
+  provided_services: ['calcentral', 'bcourses', 'oec']
 
 logger:
   level: <%= ENV['LOGGER_LEVEL'] || WARN %>

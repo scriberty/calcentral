@@ -1,5 +1,6 @@
 class BootstrapController < ApplicationController
   include ActiveRecordHelper
+  # TODO Split by provided_services.
   include AllowDelegateViewAs
   include AllowLti
   before_filter :get_settings, :initialize_calcentral_config
@@ -39,7 +40,9 @@ class BootstrapController < ApplicationController
   end
 
   def warmup_live_updates
-    LiveUpdatesWarmer.warmup_request session['user_id'] if session['user_id']
+    if @calcentral_config[:providedServices].include? 'calcentral'
+      LiveUpdatesWarmer.warmup_request session['user_id'] if session['user_id']
+    end
   end
 
   def check_cache_clear_flag
