@@ -1,0 +1,20 @@
+<div data-ng-include="'accessibility.html'"></div>
+<div data-ng-include="'ieold.html'"></div>
+
+<div class="cc-off-canvas-container" data-ng-swipe-left="offCanvasMenu.show=false">
+  <div class="row cc-navigation-bar" data-ng-cloak data-ng-show="api.user.events.isAuthenticated">
+    <button class="cc-button-link cc-popover-link"
+            data-ng-click="api.popover.clickThrough('Gear - Logout');api.user.signOut()">Log out
+    </button>
+  </div>
+  <div class="cc-offcanvas-right">
+    <div
+    class="row cc-container-main"
+    id="cc-main-content"
+    role="main">
+      <div class="cc-clearfix-container" data-ng-view></div>
+    </div>
+    <div data-ng-include="'footer.html'"></div>
+  </div>
+</div>
+<div data-ng-include="'acting_as.html'"></div>

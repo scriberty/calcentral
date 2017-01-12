@@ -100,16 +100,20 @@
       mainTemplates: {
         // Base file
         base: 'src/base.html',
-        // bCourses Embedded file
+        // bCourses Embedded LTI file
         bcoursesEmbedded: 'src/bcourses_embedded.html',
-        // bCourses Embedded public file
+        // bCourses Embedded LTI public file
         bcoursesEmbeddedPublic: 'public/bcourses_embedded.html',
-        // Index file. If it's named index.html, BootstrapController gets skipped due to
+        // CalCentral index file. If it's named index.html, BootstrapController gets skipped due to
         // hardcoded Rails assumptions about static asset serving. We always want BootstrapController
         // in the processing chain, so our index is called index-main.html.
         index: 'src/index-main.html',
         // index-main.html public file
         indexPublic: 'public/index-main.html',
+        // ETS Junction index file.
+        indexJunction: 'src/index-junction.html',
+        // index-junction.html public file
+        indexJunctionPublic: 'public/index-junction.html',
         // HTML files in public/assets
         publicAssets: 'public/assets/*.html',
         // All html files in the source
@@ -343,9 +347,17 @@
   });
 
   /**
-   * Index & bCourses task
+   * Inject the CSS / JS in ETS Junction's main index page
    */
-  gulp.task('index', ['index-main', 'index-bcourses']);
+  gulp.task('index-junction', function() {
+    return injectPage(paths.src.mainTemplates.indexJunction, 'index-junction');
+  });
+
+  /**
+   * Index & bCourses task
+   * TODO Modify for SIS/ETS split
+   */
+  gulp.task('index', ['index-main', 'index-bcourses', 'index-junction']);
 
   /**
    * Mode the index & bCourses file back to the main public directory. (production)

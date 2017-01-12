@@ -11,29 +11,17 @@ angular.module('calcentral.config').config(function($routeProvider, calcentralCo
   // List all the routes
 
   // Routes currently shared by all services.
-  $routeProvider.when('/', {
-    templateUrl: 'splash.html',
-    controller: 'SplashController',
-    isPublic: true
-  }).
-  when('/dashboard', {
-    templateUrl: 'dashboard.html',
-    controller: 'DashboardController',
-    fireUpdatedFeeds: true,
-    pageName: 'My Dashboard'
-  }).
-  when('/toolbox', {
+  $routeProvider.when('/toolbox', {
     templateUrl: 'toolbox.html',
     controller: 'MyToolboxController'
-  }).
-  when('/uid_error', {
-    templateUrl: 'uid_error.html',
-    controller: 'uidErrorController',
-    isPublic: true
   });
 
   if (providedServices.indexOf('calcentral') !== -1) {
-    $routeProvider.when('/academics', {
+    $routeProvider.when('/', {
+      templateUrl: 'splash.html',
+      controller: 'SplashController',
+      isPublic: true
+    }).when('/academics', {
       templateUrl: 'academics.html',
       controller: 'AcademicsController',
       pageName: 'My Academics'
@@ -85,6 +73,12 @@ angular.module('calcentral.config').config(function($routeProvider, calcentralCo
       templateUrl: 'campus.html',
       controller: 'CampusController'
     }).
+    when('/dashboard', {
+      templateUrl: 'dashboard.html',
+      controller: 'DashboardController',
+      fireUpdatedFeeds: true,
+      pageName: 'My Dashboard'
+    }).
     when('/delegate_landing', {
       templateUrl: 'delegate_landing.html',
       controller: 'DelegateLandingController',
@@ -127,11 +121,24 @@ angular.module('calcentral.config').config(function($routeProvider, calcentralCo
       controller: 'ProfileController',
       pageName: 'Profile'
     }).
+    when('/uid_error', {
+      templateUrl: 'uid_error.html',
+      controller: 'uidErrorController',
+      isPublic: true
+    }).
     when('/user/overview/:uid', {
       templateUrl: 'user_overview.html',
       controller: 'UserOverviewController',
       isAdvisingStudentLookup: true,
       pageName: 'Student Overview'
+    });
+  }
+
+  if (providedServices.indexOf('calcentral') === -1) {
+    $routeProvider.when('/', {
+      templateUrl: 'splash_junction.html',
+      controller: 'SplashController',
+      isPublic: true
     });
   }
 
