@@ -10,12 +10,6 @@ angular.module('calcentral.config').config(function($routeProvider, calcentralCo
 
   // List all the routes
 
-  // Routes currently shared by all services.
-  $routeProvider.when('/toolbox', {
-    templateUrl: 'toolbox.html',
-    controller: 'MyToolboxController'
-  });
-
   if (providedServices.indexOf('calcentral') !== -1) {
     $routeProvider.when('/', {
       templateUrl: 'splash.html',
@@ -120,6 +114,9 @@ angular.module('calcentral.config').config(function($routeProvider, calcentralCo
       templateUrl: 'profile.html',
       controller: 'ProfileController',
       pageName: 'Profile'
+    }).when('/toolbox', {
+      templateUrl: 'toolbox.html',
+      controller: 'MyToolboxController'
     }).
     when('/uid_error', {
       templateUrl: 'uid_error.html',
@@ -139,6 +136,9 @@ angular.module('calcentral.config').config(function($routeProvider, calcentralCo
       templateUrl: 'splash_junction.html',
       controller: 'SplashController',
       isPublic: true
+    }).when('/toolbox', {
+      templateUrl: 'toolbox_junction.html',
+      controller: 'MyToolboxController'
     });
   }
 
