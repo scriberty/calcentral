@@ -17,11 +17,9 @@ class RoutesListController < ApplicationController
       /api/my/status
       /api/ping
       /api/server_info
-      /api/stats
     )
     if provided_services.include? 'calcentral'
       routes.concat %w(
-        /api/blog
         /api/my/academics
         /api/my/activities
         /api/my/badges
@@ -34,6 +32,8 @@ class RoutesListController < ApplicationController
         /api/my/tasks
         /api/my/up_next
         /api/my/updated_feeds
+        /api/service_alerts
+        /api/stats
       )
     end
     if provided_services.include? 'bcourses'
