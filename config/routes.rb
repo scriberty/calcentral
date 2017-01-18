@@ -48,7 +48,6 @@ Calcentral::Application.routes.draw do
 
   # Search for users
   get '/api/search_users/:id' => 'search_users#by_id', :via => :get, :defaults => { :format => 'json' }
-  get '/api/search_users/id_or_name/:input' => 'search_users#by_id_or_name', :defaults => { :format => 'json' }
 
   # View-as endpoints
   get '/api/view_as/my_stored_users' => 'stored_users#get', :defaults => { :format => 'json' }
@@ -116,6 +115,7 @@ Calcentral::Application.routes.draw do
     get '/api/advising/degree_progress/grad/:student_uid' => 'advising_student#degree_progress_graduate', :defaults => { :format => 'json' }
     get '/api/advising/degree_progress/ugrd/:student_uid' => 'advising_student#degree_progress_undergrad', :defaults => { :format => 'json' }
     get '/api/advising/cache_expiry/academics/:student_uid' => 'advising_student#academics_cache_expiry', :defaults => { :format => 'json' }
+    get '/api/search_users/id_or_name/:input' => 'search_users#by_id_or_name', :defaults => { :format => 'json' }
     post '/advisor_act_as' => 'advisor_act_as#start'
     post '/stop_advisor_act_as' => 'advisor_act_as#stop'
 
