@@ -355,7 +355,6 @@
 
   /**
    * Index & bCourses task
-   * TODO Modify for SIS/ETS split
    */
   gulp.task('index', ['index-main', 'index-bcourses', 'index-junction']);
 
@@ -404,7 +403,8 @@
     return gulp.src([
         paths.src.assetsPublic,
         paths.src.mainTemplates.bcoursesEmbeddedPublic,
-        paths.src.mainTemplates.indexPublic
+        paths.src.mainTemplates.indexPublic,
+        paths.src.mainTemplates.indexJunctionPublic
       ])
       .pipe(revAllAssets.revision())
       .pipe(gulp.dest('public/'))
@@ -430,7 +430,8 @@
       [
         paths.src.assetsPublic,
         paths.src.mainTemplates.bcoursesEmbeddedPublic,
-        paths.src.mainTemplates.indexPublic
+        paths.src.mainTemplates.indexPublic,
+        paths.src.mainTemplates.indexJunctionPublic
       ]);
   });
 
