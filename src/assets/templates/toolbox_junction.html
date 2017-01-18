@@ -19,7 +19,7 @@
       <div data-ng-include="'widgets/toolbox/uid_lookup.html'" data-ng-if="(api.user.profile.isViewer || api.user.profile.isSuperuser) && api.user.profile.isDirectlyAuthenticated"></div>
     </div>
     <div class="medium-6 large-4 columns cc-column-3">
-      <div data-ng-include="'widgets/toolbox/api_test.html'"></div>
+      <div data-ng-include="'widgets/toolbox/api_test.html'" data-ng-if="api.user.profile.isSuperuser"></div>
     </div>
   </div>
 </div>
