@@ -9,10 +9,13 @@ engines:
   enabled: true
  scss-lint:
   enabled: true
-
+ csslint:
+  enabled: true
+  
 ratings:
  paths:
  - "**.rb"
  - "**.scss"
+ - "**.css"
 
 exclude_paths:
